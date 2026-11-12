@@ -424,7 +424,7 @@ const Foods = () => {
                                     Calorias : {food.calories} |
                                     Proteina : {food.protein} |
                                     Carbohidratos : {food.carbs} |
-                                    Grasas : {food.fats} |
+                                    Grasas : {food.fat} |
                                     Categoria : {food.category?.name}
                                 </p>
                                 

@@ -16,6 +16,7 @@ const Categorias = () => {
   const [editandoId, setEditandoId] = useState(null);
   const [valoresEditados, setValoresEditados] = useState({ name: '', description: '' });
   const { error, manejarError, limpiarError } = useError();
+ 
   const {
     error: errorEdicion,
     manejarError: manejarErrorEdicion,
