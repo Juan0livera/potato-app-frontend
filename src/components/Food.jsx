@@ -118,10 +118,10 @@ const Food = () => {
                 dispatch(cargarFoodOptionsSlice(resultadoOptions.foods));
 
             } catch (error) {
-                    console.log(
-                        "Error actualizando foods después de crear:",
-                        error
-                    );
+                manejarError(
+                    error,
+                    "La comida se creó, pero no se pudo actualizar la lista."
+                );
             }
 
 
