@@ -67,7 +67,7 @@ const FoodLog = () => {
                 <h1>Ingresar Comida</h1>
 
                 <Form.Label>Ingresa la comida de hoy:</Form.Label>
-                <Form.Select name="foodName" value={valores.foodMeal} onChange={handleChange}>
+                <Form.Select name="foodName" value={valores.foodName} onChange={handleChange}>
                     <option value="">Seleccionar una comida</option>
                     {listaFoods.map(food => (
                         <option key={food.id} value={food.name}> {food.name} </option>

@@ -18,10 +18,7 @@ const AnalisisIA = ({food}) => {
 
         try{
             const resultado = await analizarFoodApi(food.id)
-
-
             setResultadoIa(resultado.analysis)
-
             setAnalizado(true);
         }catch(error){
 

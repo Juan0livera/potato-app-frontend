@@ -37,7 +37,6 @@ import "../styles/dashboard.css";
 
 const Contenido = () => {
     const dispatch = useDispatch();
-    // const [seccion, setSeccion] = useState();
     const { loading, ejecutarConLoading } = useLoading(true);
 
     const usuario = useSelector(
@@ -56,33 +55,22 @@ const Contenido = () => {
 
                 try {
 
-                    const usuarioGuardado =
-                        localStorage.getItem("usuario");
+                    const usuarioGuardado = localStorage.getItem("usuario");
 
                     if (usuarioGuardado) {
-
-                        dispatch(
-                            cargarUsuariosSlice(
-                                JSON.parse(usuarioGuardado)
-                            )
+                        dispatch(cargarUsuariosSlice(JSON.parse(usuarioGuardado))
                         );
                     }
 
-
-                    const resultadoFoods =
-                        await getAllFoodApi(
-                            {
+                    const resultadoFoods = 
+                            await getAllFoodApi({
                                 page: 1,
                                 limit: 3
                             },
                             controller.signal
                         );
 
-                    dispatch(
-                        cargarFoodSlice(
-                            resultadoFoods.foods
-                        )
-                    );
+                    dispatch(cargarFoodSlice(resultadoFoods.foods));
 
                     const resultadoFoodOptions =
                         await getAllFoodApi(
@@ -93,37 +81,15 @@ const Contenido = () => {
                             controller.signal
                         );
 
-                    dispatch(
-                        cargarFoodOptionsSlice(
-                            resultadoFoodOptions.foods
-                        )
-                    );
+                    dispatch(cargarFoodOptionsSlice(resultadoFoodOptions.foods));
 
+                    const resultadoCategorias = await getAllCategoriesApi(controller.signal);
 
-                    const resultadoCategorias =
-                        await getAllCategoriesApi(
-                            controller.signal
-                        );
+                    dispatch(cargarCategorySlice(resultadoCategorias));
 
-                    dispatch(
-                        cargarCategorySlice(
-                            resultadoCategorias
-                        )
-                    );
+                    const resultadoFoodLogs = await getAllFoodLogsApi(controller.signal);
 
-
-                    const resultadoFoodLogs =
-                        await getAllFoodLogsApi(
-                            controller.signal
-                        );
-
-                    dispatch(
-                        cargarFoodLogSlice(
-                            resultadoFoodLogs
-                        )
-                    );
-
-                    
+                    dispatch(cargarFoodLogSlice(resultadoFoodLogs));
 
                 } catch (error) {
 
@@ -138,9 +104,7 @@ const Contenido = () => {
             });
         };
 
-
         cargarDatosIniciales();
-
 
         return () => {
             controller.abort();

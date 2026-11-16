@@ -16,7 +16,10 @@ const ConfirmacionEliminar = () => {
     const dispatch = useDispatch();
     const { error, manejarError, limpiarError } = useError();
     const [eliminando, setEliminando] = useState(false);
+    
     const { mostrar, tipo, id, descripcion } = useSelector(state => state.confirmacionSlice);
+
+
     const cerrar = () => {
         limpiarError();
         dispatch(cerrarConfirmacion());

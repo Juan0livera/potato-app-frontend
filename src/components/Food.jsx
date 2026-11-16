@@ -101,33 +101,23 @@ const Food = () => {
 
             try {
 
-                const resultadoFoods =
-                    await getAllFoodApi({
+                const resultadoFoods = await getAllFoodApi({
                         page: 1,
                         limit: 3
                     });
 
-                dispatch(
-                    cargarFoodSlice(
-                        resultadoFoods.foods
-                    )
-                );
+                dispatch(cargarFoodSlice(resultadoFoods.foods));
 
 
-                const resultadoOptions =
-                    await getAllFoodApi({
+                const resultadoOptions = await getAllFoodApi({
                         page: 1,
                         limit: 1000
                     });
 
-                dispatch(
-                    cargarFoodOptionsSlice(
-                        resultadoOptions.foods
-                    )
-                );
+                dispatch(cargarFoodOptionsSlice(resultadoOptions.foods));
 
             } catch (error) {
-
+                console.log(error);
 
             }
 
