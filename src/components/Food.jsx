@@ -11,6 +11,7 @@ import Alert from "react-bootstrap/Alert";
 import Button from 'react-bootstrap/esm/Button';
 import { uploadImageApi } from '../services/uploadImageServices';
 import { cargarFoodOptionsSlice } from "../redux/features/foodOptionSlice"
+import { getAllFoodApi } from '../services/foodServices';
 /*
 El food crea y borra comidas.
 */
@@ -117,8 +118,10 @@ const Food = () => {
                 dispatch(cargarFoodOptionsSlice(resultadoOptions.foods));
 
             } catch (error) {
-                console.log(error);
-
+                    console.log(
+                        "Error actualizando foods después de crear:",
+                        error
+                    );
             }
 
 
